@@ -33,7 +33,22 @@ class GameMenu extends StatelessWidget {
               children: [
                 PixelButton(
                   onPressed: () {
-                    if (game.overlays.isActive('profile'))
+                    if (game.overlays.isActive('dev'))
+                      game.overlays.remove('dev');
+                    else
+                      game.overlays.add('dev');
+                  },
+                  aspect: PixelButtonAspect.oneOne,
+                  width: 50,
+                  child: Text(
+                    "DEV",
+                    style: TextStyle(
+                        color: primaryPurpleDarker, fontFamily: "Minecraft"),
+                  ),
+                ),
+                PixelButton(
+                  onPressed: () {
+                    if (game.overlays.isActive('store'))
                       game.overlays.remove('store');
                     else
                       game.overlays.add('store');
