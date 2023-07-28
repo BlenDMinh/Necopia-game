@@ -26,9 +26,9 @@ class UVIndexScreen extends StatelessWidget {
   final BuildContext? context;
   final OpenUVResult openUVResult;
 
-  double _uv = 1;
-  double _uvMax = 11;
-  double _ozone = 0;
+  num _uv = 1;
+  num _uvMax = 11;
+  num _ozone = 0;
   DateTime _uvTime = DateTime.now();
   DateTime _uvMaxTime = DateTime.now();
   DateTime _ozoneTime = DateTime.now();

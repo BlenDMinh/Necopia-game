@@ -15,8 +15,8 @@ class UVBar extends StatelessWidget {
     return StreamBuilder<Environment?>(
         stream: environmentController.stream,
         builder: (context, snapshot) {
-          double uvIndex = 0;
-          double uvMax = 0;
+          num uvIndex = 0;
+          num uvMax = 0;
           EnvUv uv = EnvUv.low;
           if (snapshot.data != null) {
             if (snapshot.data!.openUvResult != null) {

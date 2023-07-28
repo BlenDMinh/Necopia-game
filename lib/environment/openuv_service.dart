@@ -7,13 +7,13 @@ import 'package:necopia/environment/location_service.dart';
 import 'package:http/http.dart' as http;
 
 class OpenUVResult {
-  double uv;
-  double uvMax;
-  double ozone;
+  num uv;
+  num uvMax;
+  num ozone;
   DateTime uvTime;
   DateTime uvMaxTime;
   DateTime ozoneTime;
-  List<int> safeExposureTime;
+  List<num> safeExposureTime;
 
   OpenUVResult._(this.uv, this.uvTime, this.uvMax, this.uvMaxTime, this.ozone,
       this.ozoneTime, this.safeExposureTime);
