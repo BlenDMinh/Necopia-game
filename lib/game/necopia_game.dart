@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:necopia/const/color.dart';
 import 'package:necopia/environment/environment_controller.dart';
 import 'package:necopia/game/animal/animal_component.dart';
+import 'package:necopia/game/item/bookshelf.dart';
 import 'package:necopia/game/item/lamp.dart';
 import 'package:necopia/game/layer/background_image_layer.dart';
 import 'package:necopia/game/layer/color_tint_layer.dart';
@@ -14,6 +15,7 @@ import 'package:necopia/game/layer/game_layer.dart';
 import 'package:necopia/game/layer/glow_layer.dart';
 import 'package:necopia/game/layer/sky_layer.dart';
 import 'package:necopia/game/widget/game_menu.dart';
+import 'package:necopia/game/widget/store.dart';
 import 'package:necopia/model/animal_data.dart';
 import 'package:necopia/model/user.dart';
 import 'package:necopia/service/user_service.dart';
@@ -49,6 +51,7 @@ class NecopiaGame extends FlameGame {
 
   // Components
   late LampComponent lamp;
+  late BookShelfComponent shelf;
 
   // Game logics
 
@@ -95,15 +98,14 @@ class NecopiaGame extends FlameGame {
       //     Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
       //         .withOpacity(1.0);
     });
+    shelf = await BookShelfComponent.create();
+    shelf.position = Vector2(-20, size.y / 3);
+    add(shelf);
 
     lamp = await LampComponent.create();
     lamp.position = Vector2(0, 450);
     lamp.lampGlow.position = lamp.position.toOffset() + Offset(70, 30);
     add(lamp);
-
-    // SliderComponent slider = await SliderComponent.create();
-    // slider.position = Vector2(size.x / 4, size.y / 6);
-    // add(slider);
 
     for (AnimalData data in user!.animalDatas!) {
       if (!data.isActive) continue;
@@ -145,7 +147,8 @@ GameWidget necopiaGameWidget = GameWidget.controlled(
   gameFactory: NecopiaGame.instance,
   overlayBuilderMap: {
     'game_menu': ((context, game) => GameMenu(game as NecopiaGame)),
-    'profile': (context, game) => Profile(game: game as NecopiaGame)
+    'profile': (context, game) => Profile(game: game as NecopiaGame),
+    'store': (context, game) => StoreWidget(game as NecopiaGame)
   },
   loadingBuilder: (p0) => loading(p0),
   initialActiveOverlays: const ['game_menu'],

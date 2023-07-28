@@ -29,22 +29,43 @@ class GameMenu extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Align(
             alignment: Alignment.bottomRight,
-            child: PixelButton(
-              onPressed: () {
-                if (game.overlays.isActive('profile'))
-                  game.overlays.remove('profile');
-                else
-                  game.overlays.add('profile');
-              },
-              aspect: PixelButtonAspect.oneOne,
-              width: 50,
-              child: Image.asset(
-                "assets/icon/person.png",
-                filterQuality: FilterQuality.none,
-                color: primaryPurpleDarker,
-                width: 20,
-                height: 20,
-              ),
+            child: Column(
+              children: [
+                PixelButton(
+                  onPressed: () {
+                    if (game.overlays.isActive('profile'))
+                      game.overlays.remove('store');
+                    else
+                      game.overlays.add('store');
+                  },
+                  aspect: PixelButtonAspect.oneOne,
+                  width: 50,
+                  child: Image.asset(
+                    "assets/icon/cart.png",
+                    filterQuality: FilterQuality.none,
+                    color: primaryPurpleDarker,
+                    width: 20,
+                    height: 20,
+                  ),
+                ),
+                PixelButton(
+                  onPressed: () {
+                    if (game.overlays.isActive('profile'))
+                      game.overlays.remove('profile');
+                    else
+                      game.overlays.add('profile');
+                  },
+                  aspect: PixelButtonAspect.oneOne,
+                  width: 50,
+                  child: Image.asset(
+                    "assets/icon/person.png",
+                    filterQuality: FilterQuality.none,
+                    color: primaryPurpleDarker,
+                    width: 20,
+                    height: 20,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

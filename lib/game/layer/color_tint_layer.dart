@@ -18,7 +18,7 @@ class ColorTintLayer extends DynamicLayer {
       canvas.drawColor(primaryYellowLighter.withOpacity(0.2), BlendMode.screen);
     }
     if (envTime == EnvTime.afternoon) {
-      canvas.drawColor(primaryPurpleDarker.withOpacity(0.35), BlendMode.darken);
+      canvas.drawColor(primaryPurpleDarker.withOpacity(0.6), BlendMode.darken);
     }
     if (envTime == EnvTime.night) {
       canvas.drawColor(const Color.fromARGB(255, 15, 0, 70).withOpacity(0.7),
