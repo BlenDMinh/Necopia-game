@@ -51,16 +51,16 @@ class Pollution {
 
 class Weather {
   DateTime timeStamp;
-  final int? _aqius;
-  final int? _aqicn;
+  final num? _aqius;
+  final num? _aqicn;
 
-  int get aqi => _aqius ?? -1;
-  final int temperature;
-  final int? temperatureMin;
-  final int pressure;
-  final int humidity;
-  final double windSpeed;
-  final int windDirection;
+  num get aqi => _aqius ?? -1;
+  final num temperature;
+  final num? temperatureMin;
+  final num pressure;
+  final num humidity;
+  final num windSpeed;
+  final num windDirection;
   final String icon;
 
   Weather._(
