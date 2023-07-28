@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "398104767404",
+    "project_id": "necopia-ebe33",
+    "storage_bucket": "necopia-ebe33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398104767404:android:219c7f639b9014c90ea809",
+        "android_client_info": {
+          "package_name": "com.example.necopia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398104767404-eeccbon6ek7jiddi47i50fp54mfrlhgf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe4kpMaQd1GdnUWsRQ-Be0Kjx5iuSKfcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398104767404-eeccbon6ek7jiddi47i50fp54mfrlhgf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398104767404-shtj7nrlc3e4q5u2a4j55pflbauel4po.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.necopia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
