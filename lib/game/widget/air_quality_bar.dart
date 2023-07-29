@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:necopia/const/color.dart';
 import 'package:necopia/environment/air_visual_service.dart';
 import '../../environment/environment_controller.dart';
-import '../../widget/pixelate/pixel_container.dart';
 
 class AirQualityBar extends StatelessWidget {
   AirQualityBar({super.key});
@@ -28,9 +27,9 @@ class AirQualityBar extends StatelessWidget {
           int aqi = 0;
           if (snapshot.data != null) {
             if (snapshot.data!.airVisualResult != null) {
-              quality = snapshot.data!.airQuality;
               aqi = snapshot.data!.airVisualResult!.currentPollution.aqi;
             }
+            quality = snapshot.data!.airQuality;
           }
           return Row(
             crossAxisAlignment: CrossAxisAlignment.center,
