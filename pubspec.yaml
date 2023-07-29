@@ -49,3 +49,6 @@ flutter:
     - family: Inscryption
       fonts:
         - asset: assets/fonts/Inscryption.ttf
+    - family: Pixelate
+      fonts: 
+        - asset: assets/fonts/Pixelate.ttf
