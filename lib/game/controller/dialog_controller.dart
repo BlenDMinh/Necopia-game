@@ -48,6 +48,8 @@ class CatDialogController implements ICatDialogController {
     // TODO: From currentEnvironment in environmentController, return dialog corespond to the env.
     final env = environmentController.currentEnvironment;
     var dialogs = randomKnowledgeDialogs;
+    if (env.uv.index > 0 || env.airQuality.index >= AirQuality.sensitive.index)
+      dialogs = [];
     if (env.uv.index > 0) dialogs.addAll(uvDialogs);
     if (env.airQuality.index >= AirQuality.sensitive.index)
       dialogs.addAll(aqiDialogs);

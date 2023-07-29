@@ -31,30 +31,36 @@ class _DialogPanelState extends State<DialogPanel> {
             }
             debugPrint(snapshot.data?.message ?? "test");
             if (!isDisplay) return SizedBox.shrink();
-            return PixelContainer(
-              margin: EdgeInsets.only(top: 300),
-              color: Colors.white,
-              child: Container(
-                width: 300,
-                height: 100,
-                child: AnimatedTextKit(
-                  onNext: (ind, s) async {
-                    isDisplay = false;
-                    // await Future.delayed(duration)
-                    dialogController.endDialog();
-                  },
-                  key: ValueKey<CatDialog?>(snapshot.data),
-                  animatedTexts: [
-                    TyperAnimatedText(snapshot.data?.message ?? "Hello",
-                        speed: const Duration(milliseconds: 50),
-                        textStyle: const TextStyle(
-                            fontFamily: "Pixelate",
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.bold)),
-                  ],
-                  totalRepeatCount: 1,
-                  isRepeatingAnimation: false,
-                  pause: const Duration(seconds: 5),
+            return GestureDetector(
+              onTapDown: (event) {
+                debugPrint("Turn off");
+                isDisplay = false;
+                dialogController.endDialog();
+              },
+              child: PixelContainer(
+                margin: EdgeInsets.only(top: 300),
+                color: Colors.white,
+                child: Container(
+                  width: 300,
+                  height: 100,
+                  child: AnimatedTextKit(
+                    onNext: (ind, s) async {
+                      isDisplay = false;
+                      dialogController.endDialog();
+                    },
+                    key: ValueKey<CatDialog?>(snapshot.data),
+                    animatedTexts: [
+                      TyperAnimatedText(snapshot.data?.message ?? "Hello",
+                          speed: const Duration(milliseconds: 50),
+                          textStyle: const TextStyle(
+                              fontFamily: "Pixelate",
+                              letterSpacing: 0,
+                              fontWeight: FontWeight.bold)),
+                    ],
+                    totalRepeatCount: 1,
+                    isRepeatingAnimation: false,
+                    pause: const Duration(seconds: 5),
+                  ),
                 ),
               ),
             );

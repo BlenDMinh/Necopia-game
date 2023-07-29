@@ -17,6 +17,8 @@ import 'package:necopia/game/layer/background_image_layer.dart';
 import 'package:necopia/game/layer/color_tint_layer.dart';
 import 'package:necopia/game/layer/game_layer.dart';
 import 'package:necopia/game/layer/glow_layer.dart';
+import 'package:necopia/game/layer/rain_layer.dart';
+import 'package:necopia/game/layer/rain_sky_layer.dart';
 import 'package:necopia/game/layer/sky_layer.dart';
 import 'package:necopia/game/layer/uv_layer.dart';
 import 'package:necopia/game/widget/dev_menu.dart';
@@ -53,10 +55,12 @@ class NecopiaGame extends FlameGame with TapCallbacks {
   // Game layers
 
   late SkyLayer skyLayer;
+  late RainSkyLayer rainSkyLayer;
   late Layer backgroundLayer;
   late ColorTintLayer colorTintLayer;
   late UvLayer uvLayer;
   late AirQualityLayer airQualityLayer;
+  late RainLayer rainLayer;
   late Layer gameLayer;
   late RoundGlowLayer windowGlowLayer;
 
@@ -76,6 +80,10 @@ class NecopiaGame extends FlameGame with TapCallbacks {
         size: Vector2(size.x / 2, size.x / 2),
         offset: Vector2(size.x / 2, size.y / 2.5));
 
+    rainSkyLayer = await RainSkyLayer.create(
+        size: Vector2(size.x / 2, size.x / 2),
+        offset: Vector2(size.x / 2, size.y / 2.5));
+
     final backgroundSprite = await Sprite.load('room.png');
 
     backgroundLayer = BackgroundImageLayer(
@@ -87,6 +95,7 @@ class NecopiaGame extends FlameGame with TapCallbacks {
     colorTintLayer = ColorTintLayer();
     uvLayer = UvLayer();
     airQualityLayer = AirQualityLayer();
+    rainLayer = RainLayer();
 
     gameLayer = GameLayer(this);
     windowGlowLayer = RoundGlowLayer(Offset(size.x / 2, size.y / 2.5),
@@ -102,6 +111,8 @@ class NecopiaGame extends FlameGame with TapCallbacks {
       skyLayer.changeTime(environment.time);
       uvLayer.uv = environment.uv;
       airQualityLayer.airQuality = environment.airQuality;
+      rainLayer.weather = environment.weather;
+      rainSkyLayer.weather = environment.weather;
     });
 
     carpet = await CarpetComponent.create();
@@ -142,6 +153,7 @@ class NecopiaGame extends FlameGame with TapCallbacks {
   @override
   void update(double dt) {
     super.update(dt);
+    rainSkyLayer.update(dt);
   }
 
   @override
@@ -156,11 +168,13 @@ class NecopiaGame extends FlameGame with TapCallbacks {
   @override
   void render(Canvas canvas) {
     skyLayer.render(canvas);
+    rainSkyLayer.render(canvas);
     backgroundLayer.render(canvas);
     super.render(canvas);
     colorTintLayer.render(canvas);
     uvLayer.render(canvas);
     airQualityLayer.render(canvas);
+    rainLayer.render(canvas);
     lamp.lampGlow.render(canvas);
     windowGlowLayer.render(canvas);
   }
