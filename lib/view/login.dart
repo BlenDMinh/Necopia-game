@@ -72,7 +72,7 @@ class _LoginState extends State<LoginScreen> {
                               letterSpacing: 1,
                               fontSize: 23,
                               fontWeight: FontWeight.w900,
-                              fontFamily: "Minecraft",
+                              fontFamily: "Pixelate",
                               color: Colors.white,
                               shadows: [
                                 Shadow(
