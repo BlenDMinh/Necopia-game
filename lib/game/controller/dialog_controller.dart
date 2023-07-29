@@ -15,16 +15,18 @@ abstract class ICatDialogController {
   // get CatDialog
   void forceDialog();
 
+  void endDialog();
+
   CatDialogStatus get dialogStatus;
   set dialogStatus(CatDialogStatus status);
 
   // CatDialog stream
-  Stream<CatDialog> get stream;
+  Stream<CatDialog?> get stream;
 }
 
 class CatDialogController implements ICatDialogController {
   final environmentController = Get.find<IEnvironmentController>();
-  final StreamController<CatDialog> _streamController =
+  final StreamController<CatDialog?> _streamController =
       StreamController.broadcast();
 
   static const dialogRate = 0.3;
@@ -41,11 +43,15 @@ class CatDialogController implements ICatDialogController {
   }
 
   CatDialog _getCatDialog() {
-    return CatDialog("Hi");
+    // TODO: From currentEnvironment in environmentController, return dialog corespond to the env.
+    final env = environmentController.currentEnvironment;
+
+    return CatDialog(
+        "This is a placeholder text that will be replaced later with some better dialog in the future.");
   }
 
   @override
-  Stream<CatDialog> get stream => _streamController.stream;
+  Stream<CatDialog?> get stream => _streamController.stream;
 
   @override
   CatDialogStatus dialogStatus = CatDialogStatus.ready;
@@ -55,5 +61,11 @@ class CatDialogController implements ICatDialogController {
     _streamController.sink.add(_getCatDialog());
 
     dialogStatus = CatDialogStatus.displaying;
+  }
+
+  @override
+  void endDialog() {
+    _streamController.sink.add(null);
+    dialogStatus = CatDialogStatus.ready;
   }
 }
