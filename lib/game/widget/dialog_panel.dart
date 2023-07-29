@@ -46,7 +46,8 @@ class _DialogPanelState extends State<DialogPanel> {
                   animatedTexts: [
                     TyperAnimatedText(snapshot.data?.message ?? "Hello",
                         speed: const Duration(milliseconds: 50),
-                        textStyle: const TextStyle(fontFamily: "Minecraft")),
+                        textStyle: const TextStyle(
+                            fontFamily: "Minecraft", letterSpacing: 1.5)),
                   ],
                   totalRepeatCount: 1,
                   isRepeatingAnimation: false,

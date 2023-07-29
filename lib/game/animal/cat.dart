@@ -3,18 +3,26 @@ import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:get/get.dart';
+import 'package:necopia/environment/environment_controller.dart';
 import 'package:necopia/game/animal/animal_component.dart';
+import 'package:necopia/game/animal/cat_cloth.dart';
 import 'package:necopia/game/animal/cat_dialog.dart';
 import 'package:necopia/game/controller/dialog_controller.dart';
 import 'package:necopia/model/animal_data.dart';
 
+import '../../environment/air_visual_service.dart';
+
 class CatComponent extends AnimalComponent with TapCallbacks {
+  // CONSTRUCTOR
+
   CatComponent._(super.data, super.animations, super.movingSize, super.offset);
   static create(AnimalData data,
       {required Vector2 movingSize, required Vector2 offset}) async {
     final animations = await _createAnimations();
     CatComponent cat = CatComponent._(data, animations, movingSize, offset);
     cat.catDialogComponent = await CatDialogComponent.create(cat);
+    cat.glasses = await CatClothComponent.create(cat, "cat/glasses.png");
+    cat.mask = await CatClothComponent.create(cat, "cat/mask.png");
     return cat;
   }
 
@@ -38,17 +46,33 @@ class CatComponent extends AnimalComponent with TapCallbacks {
     return {AnimalState.idle: idle, AnimalState.moving: move};
   }
 
+  // Sub-Components
   late CatDialogComponent catDialogComponent;
+  late CatClothComponent glasses;
+  late CatClothComponent mask;
+
+  // Controllers
   final dialogController = Get.find<ICatDialogController>();
+  final envionmentController = Get.find<IEnvironmentController>();
+
+  // Logics
 
   @override
   FutureOr<void> onLoad() async {
     await super.onLoad();
 
     catDialogComponent = await CatDialogComponent.create(this);
-
-    dialogController.stream.listen((event) {
-      print(event);
+    envionmentController.stream.listen((environment) {
+      if (environment!.uv.index > 0) {
+        glasses.visible = true;
+      } else {
+        glasses.visible = false;
+      }
+      if (environment.airQuality.index >= AirQuality.sensitive.index) {
+        mask.visible = true;
+      } else {
+        mask.visible = false;
+      }
     });
   }
 

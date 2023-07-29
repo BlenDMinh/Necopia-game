@@ -16,6 +16,7 @@ class AnimalComponent extends SpriteAnimationGroupComponent<AnimalState> {
     offset = offset ?? Vector2.all(0);
     final cat =
         await CatComponent.create(data, movingSize: movingSize, offset: offset);
+    cat.size = Vector2.all(100 + data.level * 1);
     return cat;
   }
 
@@ -41,7 +42,6 @@ class AnimalComponent extends SpriteAnimationGroupComponent<AnimalState> {
             Random().nextDouble() * movingSize[1]) +
         offset;
     anchor = Anchor.center;
-    size = Vector2.all(100 + data.level * 1);
   }
 
   void _triggerMove() {

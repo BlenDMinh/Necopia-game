@@ -17,6 +17,7 @@ class CatDialogComponent extends SpriteAnimationComponent {
         SpriteAnimation.spriteList(dialogBubbles, stepTime: 0.5);
     catDialog.size *= 2.5;
     catDialog.anchor = Anchor.bottomLeft;
+    catDialog.setOpacity(0);
     return catDialog;
   }
 

@@ -133,6 +133,8 @@ class NecopiaGame extends FlameGame {
       animals.add(animal);
       add(animal);
       add((animal as CatComponent).catDialogComponent);
+      add(animal.mask);
+      add(animal.glasses);
     }
   }
 
