@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:necopia/const/color.dart';
 import 'package:necopia/game/necopia_game.dart';
@@ -6,6 +5,26 @@ import 'package:necopia/game/necopia_game.dart';
 import '../../widget/pixelate/pixel_button.dart';
 import '../../widget/pixelate/pixel_container.dart';
 
+//Check in
+//
+class Mission {
+  String title;
+  String description;
+  int reward;
+  bool isFinish;
+
+  Mission(this.title, this.description, this.reward, this.isFinish);
+}
+
+// ignore: non_constant_identifier_names
+List<Mission> MissionList = [
+  Mission("Check In", "Log in everyday", 1, true),
+  Mission("Feed Animal", "Is your cat hungry, let's feed them", 2, true),
+  Mission("Bath Animal", "Log in everyday", 3, false),
+  Mission("Watch TV", "Your cat is boring ..., Watching Television!", 4, true)
+];
+
+// ignore: non_constant_identifier_names
 Widget DailyMissionWidget(
     {required Image missionIcon,
     required String title,
@@ -34,21 +53,18 @@ Widget DailyMissionWidget(
                       Text(
                         title,
                         style: const TextStyle(
-                            fontFamily: "Inscryption",
+                            fontFamily: "Pixelate",
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
                             color: Colors.black87,
                             letterSpacing: 2),
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
                       Text(
                         description,
-                        maxLines: 1,
-                        overflow: TextOverflow.fade,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                          fontFamily: "Inscryption",
+                          fontFamily: "Pixelate",
                           fontSize: 13,
                           color: Colors.black54,
                           fontWeight: FontWeight.w400,
@@ -59,27 +75,30 @@ Widget DailyMissionWidget(
                 ),
               ],
             ),
-            Row(children: [
-              Text(
-                "Reward: $reward",
-                style: const TextStyle(
-                  fontFamily: "Inscryption",
-                  fontSize: 15,
-                  color: primaryPurpleDarker,
-                  fontWeight: FontWeight.w400,
+            Container(
+              margin: const EdgeInsets.only(left: 10),
+              child: Row(children: [
+                Text(
+                  "Reward: $reward",
+                  style: const TextStyle(
+                    fontFamily: "Pixelate",
+                    fontSize: 15,
+                    color: primaryPurpleDarker,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 5, bottom: 4),
-                alignment: Alignment.center,
-                child: Image.asset(
-                  "assets/images/coin.png",
-                  filterQuality: FilterQuality.none,
-                  width: 15,
-                  height: 15,
-                ),
-              )
-            ])
+                Container(
+                  margin: const EdgeInsets.only(left: 5, bottom: 4),
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    "assets/images/coin.png",
+                    filterQuality: FilterQuality.none,
+                    width: 15,
+                    height: 15,
+                  ),
+                )
+              ]),
+            )
           ],
         ),
       ),
@@ -96,14 +115,7 @@ Widget DailyMissionWidget(
 
 class MissionPanel extends StatelessWidget {
   final NecopiaGame game;
-  List<String> missions = [
-    "test1",
-    "test2",
-    "test3",
-    "test4",
-    "test5",
-    "test6",
-  ];
+  final missions = MissionList;
   MissionPanel(this.game, {super.key});
 
   @override
@@ -149,20 +161,27 @@ class MissionPanel extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
                 children: missions
-                    .map((e) => DailyMissionWidget(
-                        title: e,
-                        description: "Description",
-                        reward: 1,
+                    .map((item) => DailyMissionWidget(
+                        title: item.title,
+                        description: item.description,
+                        reward: item.reward,
                         missionIcon: Image.asset(
                           "assets/icon/cart.png",
                           filterQuality: FilterQuality.none,
                         ),
-                        stateIcon: Image.asset(
-                          "assets/icon/tick.png",
-                          height: 30,
-                          width: 30,
-                          filterQuality: FilterQuality.none,
-                        )))
+                        stateIcon: item.isFinish
+                            ? Image.asset(
+                                "assets/icon/tick.png",
+                                height: 30,
+                                width: 30,
+                                filterQuality: FilterQuality.none,
+                              )
+                            : Image.asset(
+                                "assets/icon/untick.png",
+                                height: 30,
+                                width: 30,
+                                filterQuality: FilterQuality.none,
+                              )))
                     .toList(),
               ),
             ))
