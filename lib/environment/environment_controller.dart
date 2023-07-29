@@ -46,6 +46,11 @@ abstract class IEnvironmentController {
 
   // For testing only
   void forceUpdate();
+
+  // true = auto update, false = manual
+  void setUpdate(bool status);
+  void updateEnv(Environment environment);
+  bool get updateStatus;
 }
 
 class EnvironmentController extends GetxController
@@ -124,18 +129,24 @@ class EnvironmentController extends GetxController
 
     // Time init + update
     Stream.periodic(Duration(seconds: 5), (time) {
+      if (!_updateStatus) {
+        debugPrint("");
+        return time;
+      }
       _updateTime();
       return time;
     }).forEach((element) {});
 
     // OpenUV update
     Stream.periodic(Duration(seconds: openUvUpdateInterval), (time) {
+      if (!_updateStatus) return time;
       _updateOpenUv();
       return time;
     }).forEach((element) {});
 
     // AirVisual update
     Stream.periodic(Duration(seconds: airVisualUpdateInterval), (time) {
+      if (!_updateStatus) return time;
       _updateAirVisual();
       return time;
     }).forEach((element) {});
@@ -150,4 +161,20 @@ class EnvironmentController extends GetxController
     // _updateOpenUv();
     // _updateAirVisual();
   }
+
+  bool _updateStatus = true;
+
+  @override
+  void setUpdate(bool status) {
+    _updateStatus = status;
+  }
+
+  @override
+  void updateEnv(Environment environment) {
+    _environment.value = environment;
+    _environment.refresh();
+  }
+
+  @override
+  bool get updateStatus => _updateStatus;
 }

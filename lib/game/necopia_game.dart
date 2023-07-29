@@ -14,6 +14,7 @@ import 'package:necopia/game/layer/color_tint_layer.dart';
 import 'package:necopia/game/layer/game_layer.dart';
 import 'package:necopia/game/layer/glow_layer.dart';
 import 'package:necopia/game/layer/sky_layer.dart';
+import 'package:necopia/game/layer/uv_layer.dart';
 import 'package:necopia/game/widget/dev_menu.dart';
 import 'package:necopia/game/widget/game_menu.dart';
 import 'package:necopia/game/widget/mission_panel.dart';
@@ -49,6 +50,7 @@ class NecopiaGame extends FlameGame {
   late SkyLayer skyLayer;
   late Layer backgroundLayer;
   late ColorTintLayer colorTintLayer;
+  late UvLayer uvLayer;
   late Layer gameLayer;
   late RoundGlowLayer windowGlowLayer;
 
@@ -76,6 +78,7 @@ class NecopiaGame extends FlameGame {
         offset: Vector2(size.x / 2 - 10, size.y / 2));
 
     colorTintLayer = ColorTintLayer();
+    uvLayer = UvLayer();
 
     gameLayer = GameLayer(this);
     windowGlowLayer = RoundGlowLayer(Offset(size.x / 2, size.y / 2 - 70),
@@ -89,6 +92,7 @@ class NecopiaGame extends FlameGame {
     environmentController.listen((environment) async {
       colorTintLayer.envTime = environment!.time;
       skyLayer.changeTime(environment.time);
+      uvLayer.uv = environment.uv;
 
       // colorTintLayer.envTime = EnvTime.night;
       // skyLayer.changeTime(EnvTime.night);
@@ -149,6 +153,7 @@ class NecopiaGame extends FlameGame {
     backgroundLayer.render(canvas);
     super.render(canvas);
     colorTintLayer.render(canvas);
+    uvLayer.render(canvas);
     lamp.lampGlow.render(canvas);
     windowGlowLayer.render(canvas);
   }
