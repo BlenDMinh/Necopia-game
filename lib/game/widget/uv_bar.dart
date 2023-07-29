@@ -28,22 +28,26 @@ class UVBar extends StatelessWidget {
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(
-                "assets/icon/uv.png",
-                filterQuality: FilterQuality.none,
-                width: 40,
-                height: 40,
-                fit: BoxFit.contain,
+              Row(
+                children: [
+                  Image.asset(
+                    "assets/icon/uv.png",
+                    filterQuality: FilterQuality.none,
+                    width: 40,
+                    height: 40,
+                    fit: BoxFit.contain,
+                  ),
+                  Text(
+                      "UV: ${uvIndex.toStringAsFixed(2)} / ${uvMax.toStringAsFixed(2)} | ",
+                      style: TextStyle(
+                        fontFamily: "Pixelate",
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1,
+                        fontSize: 13,
+                        color: Colors.white,
+                      )),
+                ],
               ),
-              Text(
-                  "UV: ${uvIndex.toStringAsFixed(2)} / ${uvMax.toStringAsFixed(2)} | ",
-                  style: TextStyle(
-                    fontFamily: "Pixelate",
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1,
-                    fontSize: 13,
-                    color: Colors.white,
-                  )),
               Container(
                 decoration: BoxDecoration(color: Colors.white, boxShadow: [
                   BoxShadow(color: Colors.grey, offset: Offset(0, 3))

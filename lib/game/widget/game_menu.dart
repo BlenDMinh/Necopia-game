@@ -52,6 +52,13 @@ class GameMenu extends StatelessWidget {
               decoration: BoxDecoration(
                   border: Border.all(width: 4, color: Colors.grey),
                   color: Colors.black,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black26,
+                        offset: Offset(0, 8),
+                        blurRadius: 3,
+                        spreadRadius: 1)
+                  ],
                   image: DecorationImage(
                       filterQuality: FilterQuality.none,
                       image: AssetImage(
