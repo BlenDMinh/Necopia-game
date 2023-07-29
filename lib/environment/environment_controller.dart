@@ -151,15 +151,15 @@ class EnvironmentController extends GetxController
       return time;
     }).forEach((element) {});
 
-    forceUpdate();
+    if (_updateStatus) forceUpdate();
   }
 
   @override
   void forceUpdate() {
     _updateTime();
     // Temporary disable
-    // _updateOpenUv();
-    // _updateAirVisual();
+    _updateOpenUv();
+    _updateAirVisual();
   }
 
   bool _updateStatus = false;

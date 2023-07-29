@@ -213,7 +213,15 @@ class DevMenu extends StatelessWidget {
           _TimeSlider(),
           _UvSlider(),
           _AirSlider(),
-          _WeatherSlider()
+          _WeatherSlider(),
+          PixelButton(
+            onPressed: () {
+              environmentController.forceUpdate();
+            },
+            aspect: PixelButtonAspect.sixOne,
+            child: Text("Force update",
+                style: TextStyle(fontFamily: "Pixelate", color: Colors.white)),
+          )
         ],
       ),
     );
