@@ -4,55 +4,56 @@ import 'dart:math';
 import 'package:get/get.dart';
 import 'package:necopia/environment/environment_controller.dart';
 
-class Dialog {
+class CatDialog {
   String message;
-  Dialog(this.message);
+  CatDialog(this.message);
 }
 
-enum DialogStatus { ready, displaying }
+enum CatDialogStatus { ready, displaying }
 
-abstract class IDialogController {
-  // get Dialog
+abstract class ICatDialogController {
+  // get CatDialog
   void forceDialog();
 
-  DialogStatus get dialogStatus;
-  set dialogStatus(DialogStatus status);
+  CatDialogStatus get dialogStatus;
+  set dialogStatus(CatDialogStatus status);
 
-  // Dialog stream
-  Stream<Dialog> get stream;
+  // CatDialog stream
+  Stream<CatDialog> get stream;
 }
 
-class DialogController implements IDialogController {
+class CatDialogController implements ICatDialogController {
   final environmentController = Get.find<IEnvironmentController>();
-  final StreamController<Dialog> _streamController = StreamController();
+  final StreamController<CatDialog> _streamController =
+      StreamController.broadcast();
 
   static const dialogRate = 0.3;
 
-  DialogController() {
+  CatDialogController() {
     Stream.periodic(const Duration(seconds: 2), (time) {
-      if (dialogStatus == DialogStatus.ready &&
-          Random().nextDouble() <= DialogController.dialogRate) {
-        _streamController.sink.add(_getDialog());
+      if (dialogStatus == CatDialogStatus.ready &&
+          Random().nextDouble() <= CatDialogController.dialogRate) {
+        _streamController.sink.add(_getCatDialog());
 
-        dialogStatus = DialogStatus.displaying;
+        dialogStatus = CatDialogStatus.displaying;
       }
     }).forEach((element) {});
   }
 
-  Dialog _getDialog() {
-    return Dialog("Hi");
+  CatDialog _getCatDialog() {
+    return CatDialog("Hi");
   }
 
   @override
-  Stream<Dialog> get stream => _streamController.stream;
+  Stream<CatDialog> get stream => _streamController.stream;
 
   @override
-  DialogStatus dialogStatus = DialogStatus.ready;
+  CatDialogStatus dialogStatus = CatDialogStatus.ready;
 
   @override
   void forceDialog() {
-    _streamController.sink.add(_getDialog());
+    _streamController.sink.add(_getCatDialog());
 
-    dialogStatus = DialogStatus.displaying;
+    dialogStatus = CatDialogStatus.displaying;
   }
 }

@@ -35,7 +35,7 @@ class CatComponent extends AnimalComponent with TapCallbacks {
     return {AnimalState.idle: idle, AnimalState.moving: move};
   }
 
-  final dialogController = Get.find<IDialogController>();
+  final dialogController = Get.find<ICatDialogController>();
 
   @override
   FutureOr<void> onLoad() async {

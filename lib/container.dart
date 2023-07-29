@@ -14,5 +14,5 @@ void initContainer() {
   Get.put<IOpenUVService>(OpenUVService());
   Get.put<IAirVisualService>(AirVisualService());
   Get.put<IEnvironmentController>(EnvironmentController());
-  Get.put<IDialogController>(DialogController());
+  Get.put<ICatDialogController>(CatDialogController());
 }

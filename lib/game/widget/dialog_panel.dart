@@ -10,16 +10,22 @@ class DialogPanel extends StatelessWidget {
   final NecopiaGame game;
   DialogPanel(this.game, {super.key});
 
-  // final dialogController = Get.find<IDialogController>();
+  final dialogController = Get.find<ICatDialogController>();
 
   @override
   Widget build(BuildContext context) {
     return PixelContainer(
-      child: StreamBuilder(
-          // stream: dialogController.stream,
-          builder: (context, snapshot) => AnimatedTextKit(
-                animatedTexts: [TyperAnimatedText("Testing")],
-              )),
-    );
+        color: Colors.white,
+        child: StreamBuilder(
+            stream: dialogController.stream,
+            builder: (context, snapshot) {
+              debugPrint(snapshot.data?.message ?? "test");
+              return AnimatedTextKit(
+                key: ValueKey<CatDialog?>(snapshot.data),
+                animatedTexts: [
+                  TyperAnimatedText(snapshot.data?.message ?? "Hello")
+                ],
+              );
+            }));
   }
 }
