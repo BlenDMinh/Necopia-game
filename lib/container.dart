@@ -3,7 +3,7 @@ import 'package:necopia/environment/air_visual_service.dart';
 import 'package:necopia/environment/environment_controller.dart';
 import 'package:necopia/environment/location_service.dart';
 import 'package:necopia/environment/openuv_service.dart';
-import 'package:necopia/game/ccntroller/dialog_controller.dart';
+import 'package:necopia/game/controller/dialog_controller.dart';
 import 'package:necopia/service/animal_service.dart';
 import 'package:necopia/service/user_service.dart';
 

@@ -4,7 +4,7 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:get/get.dart';
 import 'package:necopia/game/animal/animal_component.dart';
-import 'package:necopia/game/ccntroller/dialog_controller.dart';
+import 'package:necopia/game/controller/dialog_controller.dart';
 import 'package:necopia/model/animal_data.dart';
 
 class CatComponent extends AnimalComponent with TapCallbacks {
