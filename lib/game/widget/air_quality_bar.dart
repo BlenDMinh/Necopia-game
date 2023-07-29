@@ -110,7 +110,7 @@ class AirQualityBar extends StatelessWidget {
                       BoxShadow(color: Colors.grey, offset: Offset(0, 3))
                     ]),
                     padding: EdgeInsets.all(3),
-                    child: Text("$temperature" + "C",
+                    child: Text("$temperature" + "'C",
                         style: TextStyle(
                           fontFamily: "Pixelate",
                           fontWeight: FontWeight.bold,

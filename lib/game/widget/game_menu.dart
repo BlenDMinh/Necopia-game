@@ -76,78 +76,107 @@ class GameMenu extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Align(
-            alignment: Alignment.bottomRight,
-            child: Column(
-              children: [
-                PixelButton(
-                  onPressed: () {
-                    if (game.overlays.isActive('dev'))
-                      game.overlays.remove('dev');
-                    else
-                      game.overlays.add('dev');
-                  },
-                  aspect: PixelButtonAspect.oneOne,
-                  width: 50,
-                  child: Text(
-                    "DEV",
-                    style:
-                        TextStyle(color: Colors.white, fontFamily: "Minecraft"),
-                  ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/icon/headphone.png",
+                      width: 40,
+                      height: 40,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "japanese night cafe vibes\na lofi hip hop mix ~\nchill with taiki",
+                      style: TextStyle(
+                          fontFamily: "Pixelate",
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                      softWrap: true,
+                      maxLines: 3,
+                    )
+                  ],
                 ),
-                PixelButton(
-                  onPressed: () {
-                    if (game.overlays.isActive('store'))
-                      game.overlays.remove('store');
-                    else
-                      game.overlays.add('store');
-                  },
-                  aspect: PixelButtonAspect.oneOne,
-                  width: 50,
-                  child: Image.asset(
-                    "assets/icon/cart.png",
-                    filterQuality: FilterQuality.none,
-                    color: Colors.white,
-                    width: 20,
-                    height: 20,
+              ),
+              Column(
+                children: [
+                  PixelButton(
+                    onPressed: () {
+                      if (game.overlays.isActive('dev'))
+                        game.overlays.remove('dev');
+                      else
+                        game.overlays.add('dev');
+                    },
+                    aspect: PixelButtonAspect.oneOne,
+                    width: 50,
+                    child: Text(
+                      "DEV",
+                      style: TextStyle(
+                          color: Colors.white, fontFamily: "Minecraft"),
+                    ),
                   ),
-                ),
-                PixelButton(
-                  onPressed: () {
-                    if (game.overlays.isActive('mission'))
-                      game.overlays.remove('mission');
-                    else
-                      game.overlays.add('mission');
-                  },
-                  aspect: PixelButtonAspect.oneOne,
-                  width: 50,
-                  child: Image.asset(
-                    "assets/images/mission.png",
-                    filterQuality: FilterQuality.none,
-                    color: Colors.white,
-                    width: 20,
-                    height: 20,
+                  PixelButton(
+                    onPressed: () {
+                      if (game.overlays.isActive('store'))
+                        game.overlays.remove('store');
+                      else
+                        game.overlays.add('store');
+                    },
+                    aspect: PixelButtonAspect.oneOne,
+                    width: 50,
+                    child: Image.asset(
+                      "assets/icon/cart.png",
+                      filterQuality: FilterQuality.none,
+                      color: Colors.white,
+                      width: 20,
+                      height: 20,
+                    ),
                   ),
-                ),
-                PixelButton(
-                  onPressed: () {
-                    if (game.overlays.isActive('profile'))
-                      game.overlays.remove('profile');
-                    else
-                      game.overlays.add('profile');
-                  },
-                  aspect: PixelButtonAspect.oneOne,
-                  width: 50,
-                  child: Image.asset(
-                    "assets/icon/person.png",
-                    filterQuality: FilterQuality.none,
-                    color: Colors.white,
-                    width: 20,
-                    height: 20,
+                  PixelButton(
+                    onPressed: () {
+                      if (game.overlays.isActive('mission'))
+                        game.overlays.remove('mission');
+                      else
+                        game.overlays.add('mission');
+                    },
+                    aspect: PixelButtonAspect.oneOne,
+                    width: 50,
+                    child: Image.asset(
+                      "assets/images/mission.png",
+                      filterQuality: FilterQuality.none,
+                      color: Colors.white,
+                      width: 20,
+                      height: 20,
+                    ),
                   ),
-                ),
-              ],
-            ),
+                  PixelButton(
+                    onPressed: () {
+                      if (game.overlays.isActive('profile'))
+                        game.overlays.remove('profile');
+                      else
+                        game.overlays.add('profile');
+                    },
+                    aspect: PixelButtonAspect.oneOne,
+                    width: 50,
+                    child: Image.asset(
+                      "assets/icon/person.png",
+                      filterQuality: FilterQuality.none,
+                      color: Colors.white,
+                      width: 20,
+                      height: 20,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ],

@@ -22,13 +22,21 @@ class CatDialogComponent extends SpriteAnimationComponent {
   }
 
   final catDialogController = Get.find<ICatDialogController>();
+  CatDialogStatus status = CatDialogStatus.ready;
 
   @override
   void update(double dt) {
-    if (catDialogController.dialogStatus == CatDialogStatus.displaying)
+    if (catDialogController.dialogStatus == CatDialogStatus.displaying &&
+        status != CatDialogStatus.displaying) {
+      status = CatDialogStatus.displaying;
+      catComponent.meow();
       this.setOpacity(1);
-    else
+    }
+    if (catDialogController.dialogStatus == CatDialogStatus.ready &&
+        status != CatDialogStatus.ready) {
+      status = CatDialogStatus.ready;
       this.setOpacity(0);
+    }
     this.position = catComponent.position + Vector2(0, -10);
     super.update(dt);
   }

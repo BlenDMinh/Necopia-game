@@ -38,7 +38,7 @@ class _DialogPanelState extends State<DialogPanel> {
                 dialogController.endDialog();
               },
               child: PixelContainer(
-                margin: EdgeInsets.only(top: 300),
+                margin: EdgeInsets.only(top: 370),
                 color: Colors.white,
                 child: Container(
                   width: 300,

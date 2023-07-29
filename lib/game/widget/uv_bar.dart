@@ -8,6 +8,13 @@ class UVBar extends StatelessWidget {
   final environmentController = Get.find<IEnvironmentController>();
 
   final _uvString = ["Low", "Moderarte", "High", "Very high", "Extreme"];
+  final _uvColor = [
+    Colors.green,
+    Color.fromARGB(255, 210, 196, 69),
+    Colors.orange,
+    Colors.red,
+    Colors.deepPurple
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +67,7 @@ class UVBar extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     letterSpacing: 0.5,
                     fontSize: 14,
-                    color: Colors.grey.shade700,
+                    color: _uvColor[uv.index],
                   ),
                 ),
               )

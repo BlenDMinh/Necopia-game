@@ -158,11 +158,11 @@ class EnvironmentController extends GetxController
   void forceUpdate() {
     _updateTime();
     // Temporary disable
-    _updateOpenUv();
-    _updateAirVisual();
+    // _updateOpenUv();
+    // _updateAirVisual();
   }
 
-  bool _updateStatus = true;
+  bool _updateStatus = false;
 
   @override
   void setUpdate(bool status) {

@@ -31,7 +31,7 @@ class CatDialogController implements ICatDialogController {
   final StreamController<CatDialog?> _streamController =
       StreamController.broadcast();
 
-  static const dialogRate = 0.3;
+  static const dialogRate = 0.1;
 
   CatDialogController() {
     Stream.periodic(const Duration(seconds: 2), (time) {

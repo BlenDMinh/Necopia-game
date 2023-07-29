@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
@@ -54,6 +55,8 @@ class NecopiaGame extends FlameGame with TapCallbacks {
   IEnvironmentController environmentController =
       Get.find<IEnvironmentController>();
 
+  final bgmPlayer = AudioPlayer();
+
   // Game layers
 
   late SkyLayer skyLayer;
@@ -76,6 +79,8 @@ class NecopiaGame extends FlameGame with TapCallbacks {
 
   @override
   FutureOr<void> onLoad() async {
+    bgmPlayer.setReleaseMode(ReleaseMode.loop);
+    bgmPlayer.play(AssetSource("audio/bgm.mp3"));
     NecopiaUser? user = NecopiaUser.currentUser;
     await user?.ensureInit();
 

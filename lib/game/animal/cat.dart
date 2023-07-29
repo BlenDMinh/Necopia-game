@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:get/get.dart';
@@ -79,5 +80,12 @@ class CatComponent extends AnimalComponent with TapCallbacks {
   @override
   void onTapDown(TapDownEvent event) {
     dialogController.forceDialog();
+  }
+
+  void meow() async {
+    final catPlayer = AudioPlayer();
+    await catPlayer.setVolume(0.2);
+    await catPlayer.play(AssetSource("audio/meow-effect.mp3"),
+        mode: PlayerMode.lowLatency);
   }
 }
