@@ -9,16 +9,16 @@ class UvLayer extends DynamicLayer {
 
   final Map<EnvUv, Color> _colorMap = {
     EnvUv.low: const Color(0xffffffff).withOpacity(0),
-    EnvUv.moderate: primaryYellowLighter.withOpacity(0.1),
-    EnvUv.high: primaryYellowLighter.withOpacity(0.2),
-    EnvUv.veryHigh: primaryYellowLighter.withOpacity(0.3),
-    EnvUv.extreme: primaryYellowLighter.withOpacity(0.5)
+    EnvUv.moderate: const Color.fromARGB(255, 255, 77, 0).withOpacity(0.1),
+    EnvUv.high: const Color.fromARGB(255, 255, 77, 0).withOpacity(0.2),
+    EnvUv.veryHigh: const Color.fromARGB(255, 255, 77, 0).withOpacity(0.3),
+    EnvUv.extreme: const Color.fromARGB(255, 255, 77, 0).withOpacity(0.4)
   };
 
   @override
   void drawLayer() {
     var color = _colorMap[uv];
     color ??= const Color(0xffffffff).withOpacity(0);
-    canvas.drawColor(color, BlendMode.screen);
+    canvas.drawColor(color, BlendMode.hardLight);
   }
 }
