@@ -18,10 +18,10 @@ class Mission {
 
 // ignore: non_constant_identifier_names
 List<Mission> MissionList = [
-  Mission("Check In", "Log in everyday", 1, true),
-  Mission("Feed Animal", "Is your cat hungry, let's feed them", 2, true),
-  Mission("Bath Animal", "Log in everyday", 3, false),
-  Mission("Watch TV", "Your cat is boring ..., Watching Television!", 4, true)
+  Mission("Check In", "Log in everyday", 100, true),
+  Mission("Feed Animal", "Is your cat hungry, let's feed them", 200, true),
+  Mission("Bath Animal", "Log in everyday", 300, false),
+  Mission("Watch TV", "Your cat is boring ..., Watching Television!", 400, true)
 ];
 
 // ignore: non_constant_identifier_names
