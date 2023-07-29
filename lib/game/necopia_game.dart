@@ -126,7 +126,7 @@ class NecopiaGame extends FlameGame with TapCallbacks {
     add(shelf);
 
     tv = await TvComponent.create();
-    tv.position = Vector2(300, size.y / 1.75);
+    tv.position = Vector2(320, size.y / 1.75);
     add(tv);
 
     lamp = await LampComponent.create();
