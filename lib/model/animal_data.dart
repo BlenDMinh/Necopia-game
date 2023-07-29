@@ -5,7 +5,7 @@ import 'package:necopia/service/animal_service.dart';
 
 class AnimalData {
   late Animal animal;
-  late NecopiaUser user;
+  late NecopiaUser? user;
   double food = 1.0;
   int level = 0;
   int currentExp = 0;
@@ -45,7 +45,7 @@ class AnimalData {
   Map<String, dynamic> toJson() {
     return {
       'animal_id': animal.id,
-      'uid': user.uid,
+      'uid': user!.uid,
       'level': level,
       'current_exp': currentExp,
       'next_level_exp': nextLevelExp,

@@ -16,7 +16,9 @@ import 'package:necopia/game/layer/glow_layer.dart';
 import 'package:necopia/game/layer/sky_layer.dart';
 import 'package:necopia/game/widget/dev_menu.dart';
 import 'package:necopia/game/widget/game_menu.dart';
+import 'package:necopia/game/widget/mission_panel.dart';
 import 'package:necopia/game/widget/store.dart';
+import 'package:necopia/model/animal.dart';
 import 'package:necopia/model/animal_data.dart';
 import 'package:necopia/model/user.dart';
 import 'package:necopia/service/user_service.dart';
@@ -108,6 +110,14 @@ class NecopiaGame extends FlameGame {
     lamp.lampGlow.position = lamp.position.toOffset() + Offset(70, 30);
     add(lamp);
 
+    if (user == null || user.animalDatas == null || user.animalDatas!.isEmpty) {
+      AnimalComponent animal = await AnimalComponent.fromAnimalData(
+          AnimalData(Animal('Cat'), null),
+          movingSize: Vector2(size.x * 3 / 4, size.y / 4),
+          offset: Vector2(size.x / 8, size.y * 3.3 / 5));
+      animals.add(animal);
+      add(animal);
+    }
     for (AnimalData data in user!.animalDatas!) {
       if (!data.isActive) continue;
       animalData = data;
@@ -150,7 +160,8 @@ GameWidget necopiaGameWidget = GameWidget.controlled(
     'game_menu': ((context, game) => GameMenu(game as NecopiaGame)),
     'profile': (context, game) => Profile(game: game as NecopiaGame),
     'store': (context, game) => StoreWidget(game as NecopiaGame),
-    'dev': (context, game) => DevMenu(game as NecopiaGame)
+    'dev': (context, game) => DevMenu(game as NecopiaGame),
+    'mission': (context, game) => MissionPanel(game as NecopiaGame)
   },
   loadingBuilder: (p0) => loading(p0),
   initialActiveOverlays: const ['game_menu'],
