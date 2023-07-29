@@ -21,7 +21,9 @@ List<Mission> MissionList = [
   Mission("Check In", "Log in everyday", 100, true),
   Mission("Feed Animal", "Is your cat hungry, let's feed them", 200, true),
   Mission("Bath Animal", "Log in everyday", 300, false),
-  Mission("Watch TV", "Your cat is boring ..., Watching Television!", 400, true)
+  Mission(
+      "Watch TV", "Your cat is boring ..., Watching Television!", 400, true),
+  Mission("EnvQuiz", "Answer 5 questions about global environment", 200, false)
 ];
 
 // ignore: non_constant_identifier_names

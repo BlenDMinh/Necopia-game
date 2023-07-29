@@ -95,6 +95,5 @@ class CatComponent extends AnimalComponent with TapCallbacks {
   @override
   void update(double dt) {
     super.update(dt);
-    // catDialogComponent.update(dt);
   }
 }

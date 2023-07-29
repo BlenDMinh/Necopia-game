@@ -20,6 +20,7 @@ dependencies:
   http: ^1.1.0
   animated_text_kit: ^4.2.2
   audioplayers: ^5.0.0
+  video_player: ^2.7.0
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +46,7 @@ flutter:
     - assets/images/sky/
     - assets/images/rain/
     - assets/audio/
+    - assets/ad/
   fonts:
     - family: Minecraft
       fonts:
