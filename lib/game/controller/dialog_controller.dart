@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:get/get.dart';
+import 'package:necopia/environment/air_visual_service.dart';
 import 'package:necopia/environment/environment_controller.dart';
+import 'package:necopia/game/controller/dialog_set.dart';
 
 class CatDialog {
   String message;
@@ -45,9 +47,13 @@ class CatDialogController implements ICatDialogController {
   CatDialog _getCatDialog() {
     // TODO: From currentEnvironment in environmentController, return dialog corespond to the env.
     final env = environmentController.currentEnvironment;
+    var dialogs = randomKnowledgeDialogs;
+    if (env.uv.index > 0) dialogs.addAll(uvDialogs);
+    if (env.airQuality.index >= AirQuality.sensitive.index)
+      dialogs.addAll(aqiDialogs);
+    dialogs.shuffle();
 
-    return CatDialog(
-        "This is a placeholder text that will be replaced later with some better dialog in the future.");
+    return CatDialog(dialogs.first);
   }
 
   @override
