@@ -10,6 +10,7 @@ import 'package:necopia/environment/environment_controller.dart';
 import 'package:necopia/game/animal/animal_component.dart';
 import 'package:necopia/game/animal/cat.dart';
 import 'package:necopia/game/item/bookshelf.dart';
+import 'package:necopia/game/item/carpet.dart';
 import 'package:necopia/game/item/lamp.dart';
 import 'package:necopia/game/layer/air_quality_layer.dart';
 import 'package:necopia/game/layer/background_image_layer.dart';
@@ -62,6 +63,7 @@ class NecopiaGame extends FlameGame with TapCallbacks {
   // Components
   late LampComponent lamp;
   late BookShelfComponent shelf;
+  late CarpetComponent carpet;
 
   // Game logics
 
@@ -101,6 +103,11 @@ class NecopiaGame extends FlameGame with TapCallbacks {
       uvLayer.uv = environment.uv;
       airQualityLayer.airQuality = environment.airQuality;
     });
+
+    carpet = await CarpetComponent.create();
+    carpet.position = Vector2(size.x / 2, size.y / 1.4);
+    add(carpet);
+
     shelf = await BookShelfComponent.create();
     shelf.position = Vector2(-20, size.y / 2.7);
     add(shelf);
