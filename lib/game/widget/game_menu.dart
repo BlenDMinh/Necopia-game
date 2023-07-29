@@ -65,6 +65,23 @@ class GameMenu extends StatelessWidget {
                 ),
                 PixelButton(
                   onPressed: () {
+                    if (game.overlays.isActive('mission'))
+                      game.overlays.remove('mission');
+                    else
+                      game.overlays.add('mission');
+                  },
+                  aspect: PixelButtonAspect.oneOne,
+                  width: 50,
+                  child: Image.asset(
+                    "assets/icon/letter.png",
+                    filterQuality: FilterQuality.none,
+                    color: primaryPurpleDarker,
+                    width: 20,
+                    height: 20,
+                  ),
+                ),
+                PixelButton(
+                  onPressed: () {
                     if (game.overlays.isActive('profile'))
                       game.overlays.remove('profile');
                     else

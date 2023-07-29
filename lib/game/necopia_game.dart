@@ -16,6 +16,7 @@ import 'package:necopia/game/layer/glow_layer.dart';
 import 'package:necopia/game/layer/sky_layer.dart';
 import 'package:necopia/game/layer/uv_layer.dart';
 import 'package:necopia/game/widget/dev_menu.dart';
+import 'package:necopia/game/widget/dialog_panel.dart';
 import 'package:necopia/game/widget/game_menu.dart';
 import 'package:necopia/game/widget/mission_panel.dart';
 import 'package:necopia/game/widget/store.dart';
@@ -166,8 +167,9 @@ GameWidget necopiaGameWidget = GameWidget.controlled(
     'profile': (context, game) => Profile(game: game as NecopiaGame),
     'store': (context, game) => StoreWidget(game as NecopiaGame),
     'dev': (context, game) => DevMenu(game as NecopiaGame),
-    'mission': (context, game) => MissionPanel(game as NecopiaGame)
+    'mission': (context, game) => MissionPanel(game as NecopiaGame),
+    'dialog': (context, game) => DialogPanel(game as NecopiaGame)
   },
   loadingBuilder: (p0) => loading(p0),
-  initialActiveOverlays: const ['game_menu'],
+  initialActiveOverlays: const ['game_menu', 'dialog'],
 );
