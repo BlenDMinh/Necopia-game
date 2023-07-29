@@ -12,6 +12,7 @@ import 'package:necopia/game/animal/cat.dart';
 import 'package:necopia/game/item/bookshelf.dart';
 import 'package:necopia/game/item/carpet.dart';
 import 'package:necopia/game/item/lamp.dart';
+import 'package:necopia/game/item/tv.dart';
 import 'package:necopia/game/layer/air_quality_layer.dart';
 import 'package:necopia/game/layer/background_image_layer.dart';
 import 'package:necopia/game/layer/color_tint_layer.dart';
@@ -68,6 +69,7 @@ class NecopiaGame extends FlameGame with TapCallbacks {
   late LampComponent lamp;
   late BookShelfComponent shelf;
   late CarpetComponent carpet;
+  late TvComponent tv;
 
   // Game logics
 
@@ -122,6 +124,10 @@ class NecopiaGame extends FlameGame with TapCallbacks {
     shelf = await BookShelfComponent.create();
     shelf.position = Vector2(-20, size.y / 2.7);
     add(shelf);
+
+    tv = await TvComponent.create();
+    tv.position = Vector2(300, size.y / 1.75);
+    add(tv);
 
     lamp = await LampComponent.create();
     lamp.position = Vector2(-30, 550);
