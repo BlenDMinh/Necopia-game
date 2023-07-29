@@ -88,7 +88,7 @@ Widget DailyMissionWidget(
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(left: 5, bottom: 4),
+                  margin: const EdgeInsets.only(left: 5, bottom: 2),
                   alignment: Alignment.center,
                   child: Image.asset(
                     "assets/images/coin.png",
