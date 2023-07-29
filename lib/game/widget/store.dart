@@ -76,7 +76,7 @@ class StoreWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "300 ",
+                            "100 ",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Pixelate",
@@ -95,12 +95,15 @@ class StoreWidget extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset("assets/images/item/lamp.png"),
+                      Image.asset(
+                        "assets/images/item/tv.png",
+                        width: 65,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "300 ",
+                            "500 ",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Pixelate",
@@ -119,12 +122,15 @@ class StoreWidget extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset("assets/images/item/lamp.png"),
+                      Image.asset(
+                        "assets/images/cat-1.png",
+                        width: 65,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "300 ",
+                            "1000 ",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Pixelate",
@@ -143,12 +149,12 @@ class StoreWidget extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset("assets/images/item/lamp.png"),
+                      Image.asset("assets/images/cat-4.png", width: 65),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "300 ",
+                            "1000 ",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Pixelate",
@@ -167,12 +173,12 @@ class StoreWidget extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset("assets/images/item/lamp.png"),
+                      Image.asset("assets/images/cat-2.png", width: 65),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "300 ",
+                            "1000 ",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Pixelate",
@@ -191,12 +197,12 @@ class StoreWidget extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset("assets/images/item/lamp.png"),
+                      Image.asset("assets/images/cat-3.png", width: 65),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "300 ",
+                            "2000 ",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Pixelate",
@@ -215,12 +221,12 @@ class StoreWidget extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset("assets/images/item/lamp.png"),
+                      Image.asset("assets/images/carpet.png", width: 65),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "300 ",
+                            "200 ",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Pixelate",
@@ -239,12 +245,12 @@ class StoreWidget extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset("assets/images/item/lamp.png"),
+                      Image.asset("assets/images/cat_img_1.png", width: 65),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "300 ",
+                            "50 ",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Pixelate",
