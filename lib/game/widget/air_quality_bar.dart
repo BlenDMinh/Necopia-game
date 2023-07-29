@@ -28,53 +28,51 @@ class AirQualityBar extends StatelessWidget {
           int aqi = 0;
           if (snapshot.data != null) {
             if (snapshot.data!.airVisualResult != null) {
-              quality = snapshot
-                  .data!.airVisualResult!.currentPollution.airQualityStatus;
+              quality = snapshot.data!.airQuality;
               aqi = snapshot.data!.airVisualResult!.currentPollution.aqi;
             }
           }
-          return PixelContainer(
-            padding: const EdgeInsets.all(5),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset(
-                  "assets/icon/air.png",
-                  filterQuality: FilterQuality.none,
-                  width: 40,
-                  height: 40,
-                  fit: BoxFit.contain,
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                "assets/icon/air.png",
+                filterQuality: FilterQuality.none,
+                width: 40,
+                height: 40,
+                fit: BoxFit.contain,
+              ),
+              Text(" AQI: $aqi | ",
+                  style: TextStyle(
+                    fontFamily: "Pixelate",
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
+                    fontSize: 14,
+                    color: Colors.white,
+                  )),
+              Container(
+                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                  BoxShadow(color: Colors.grey, offset: Offset(0, 3))
+                ]),
+                padding: EdgeInsets.all(3),
+                child: Text(
+                  _qualityString[quality.index],
+                  style: TextStyle(
+                      fontFamily: "Pixelate",
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0.5,
+                      fontSize: 14,
+                      color: quality == AirQuality.good
+                          ? Colors.greenAccent.shade700
+                          : quality == AirQuality.moderate
+                              ? primaryYellowLighter
+                              : quality == AirQuality.unhealthy
+                                  ? Colors.red
+                                  : Colors.red.shade800),
                 ),
-                Row(
-                  children: [
-                    Text(" AQI: $aqi | ",
-                        style: TextStyle(
-                          fontFamily: "Minecraft",
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          fontSize: 13,
-                          color: Colors.grey.shade700,
-                        )),
-                    Text(
-                      _qualityString[quality.index].padLeft(14),
-                      style: TextStyle(
-                          fontFamily: "Minecraft",
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 0.5,
-                          fontSize: 13,
-                          color: quality == AirQuality.good
-                              ? Colors.greenAccent.shade700
-                              : quality == AirQuality.moderate
-                                  ? primaryYellowLighter
-                                  : quality == AirQuality.unhealthy
-                                      ? Colors.red
-                                      : Colors.red.shade800),
-                    )
-                  ],
-                ),
-              ],
-            ),
+              ),
+            ],
           );
         });
   }

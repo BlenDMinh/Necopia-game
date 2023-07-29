@@ -25,44 +25,42 @@ class UVBar extends StatelessWidget {
               uv = snapshot.data!.uv;
             }
           }
-          return PixelContainer(
-            padding: EdgeInsets.all(5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset(
-                  "assets/icon/uv.png",
-                  filterQuality: FilterQuality.none,
-                  width: 40,
-                  height: 40,
-                  fit: BoxFit.contain,
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                "assets/icon/uv.png",
+                filterQuality: FilterQuality.none,
+                width: 40,
+                height: 40,
+                fit: BoxFit.contain,
+              ),
+              Text(
+                  "UV: ${uvIndex.toStringAsFixed(2)} / ${uvMax.toStringAsFixed(2)} | ",
+                  style: TextStyle(
+                    fontFamily: "Pixelate",
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
+                    fontSize: 13,
+                    color: Colors.white,
+                  )),
+              Container(
+                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                  BoxShadow(color: Colors.grey, offset: Offset(0, 3))
+                ]),
+                padding: EdgeInsets.all(3),
+                child: Text(
+                  _uvString[uv.index],
+                  style: TextStyle(
+                    fontFamily: "",
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 0.5,
+                    fontSize: 14,
+                    color: Colors.grey.shade700,
+                  ),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      "UV: ${uvIndex.toStringAsFixed(2)} / ${uvMax.toStringAsFixed(2)} | ",
-                      style: TextStyle(
-                        fontFamily: "Minecraft",
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1,
-                        fontSize: 13,
-                        color: Colors.grey.shade700,
-                      ),
-                    ),
-                    Text(
-                      _uvString[uv.index].padLeft(14),
-                      style: TextStyle(
-                        fontFamily: "Minecraft",
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 0.5,
-                        fontSize: 13,
-                        color: Colors.grey.shade700,
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
+              )
+            ],
           );
         });
   }
