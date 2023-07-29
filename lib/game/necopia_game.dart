@@ -151,6 +151,8 @@ class NecopiaGame extends FlameGame with TapCallbacks {
       add(animal);
       CatComponent cat = animal as CatComponent;
       add(cat.catDialogComponent);
+      add(animal.mask);
+      add(animal.glasses);
     }
     for (AnimalData data in user!.animalDatas!) {
       if (!data.isActive) continue;
