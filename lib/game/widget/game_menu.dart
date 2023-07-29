@@ -91,8 +91,8 @@ class GameMenu extends StatelessWidget {
                   width: 50,
                   child: Text(
                     "DEV",
-                    style: TextStyle(
-                        color: primaryPurpleDarker, fontFamily: "Minecraft"),
+                    style:
+                        TextStyle(color: Colors.white, fontFamily: "Minecraft"),
                   ),
                 ),
                 PixelButton(
@@ -107,7 +107,7 @@ class GameMenu extends StatelessWidget {
                   child: Image.asset(
                     "assets/icon/cart.png",
                     filterQuality: FilterQuality.none,
-                    color: primaryPurpleDarker,
+                    color: Colors.white,
                     width: 20,
                     height: 20,
                   ),
@@ -124,7 +124,7 @@ class GameMenu extends StatelessWidget {
                   child: Image.asset(
                     "assets/icon/letter.png",
                     filterQuality: FilterQuality.none,
-                    color: primaryPurpleDarker,
+                    color: Colors.white,
                     width: 20,
                     height: 20,
                   ),
@@ -141,7 +141,7 @@ class GameMenu extends StatelessWidget {
                   child: Image.asset(
                     "assets/icon/person.png",
                     filterQuality: FilterQuality.none,
-                    color: primaryPurpleDarker,
+                    color: Colors.white,
                     width: 20,
                     height: 20,
                   ),
