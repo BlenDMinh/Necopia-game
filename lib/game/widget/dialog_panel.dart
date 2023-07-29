@@ -53,7 +53,7 @@ class _DialogPanelState extends State<DialogPanel> {
                   ],
                   totalRepeatCount: 1,
                   isRepeatingAnimation: false,
-                  pause: const Duration(seconds: 3),
+                  pause: const Duration(seconds: 5),
                 ),
               ),
             );

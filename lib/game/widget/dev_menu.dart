@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:necopia/const/color.dart';
 import 'package:necopia/environment/air_visual_service.dart';
 import 'package:necopia/environment/environment_controller.dart';
 import 'package:necopia/game/necopia_game.dart';
@@ -33,7 +34,10 @@ class _AutoUpdateSwitchState extends State<_AutoUpdateSwitch> {
             },
             child: Text(
               updateStatus ? "ON" : "OFF",
-              style: const TextStyle(fontFamily: "Minecraft"),
+              style: const TextStyle(
+                  fontFamily: "Minecraft",
+                  color: primaryPurpleDarker,
+                  fontWeight: FontWeight.bold),
             )),
       ],
     );
@@ -58,15 +62,18 @@ class _TimeSliderState extends State<_TimeSlider> {
           style: TextStyle(fontFamily: "Minecraft"),
         ),
         Slider(
-            value: env.time.index.toDouble(),
-            max: EnvTime.values.length.toDouble() - 1,
-            divisions: EnvTime.values.length - 1,
-            onChanged: (value) {
-              int index = value.toInt();
-              env.time = EnvTime.values[index];
-              environmentController.updateEnv(env);
-              setState(() {});
-            })
+          value: env.time.index.toDouble(),
+          max: EnvTime.values.length.toDouble() - 1,
+          divisions: EnvTime.values.length - 1,
+          onChanged: (value) {
+            int index = value.toInt();
+            env.time = EnvTime.values[index];
+            environmentController.updateEnv(env);
+            setState(() {});
+          },
+          activeColor: primaryPurple,
+          inactiveColor: primaryPurpleLighter.withOpacity(0.6),
+        )
       ],
     );
   }
@@ -89,15 +96,18 @@ class _UvSliderState extends State<_UvSlider> {
           style: TextStyle(fontFamily: "Minecraft"),
         ),
         Slider(
-            value: env.uv.index.toDouble(),
-            max: EnvUv.values.length.toDouble() - 1,
-            divisions: EnvUv.values.length - 1,
-            onChanged: (value) {
-              int index = value.toInt();
-              env.uv = EnvUv.values[index];
-              environmentController.updateEnv(env);
-              setState(() {});
-            })
+          value: env.uv.index.toDouble(),
+          max: EnvUv.values.length.toDouble() - 1,
+          divisions: EnvUv.values.length - 1,
+          onChanged: (value) {
+            int index = value.toInt();
+            env.uv = EnvUv.values[index];
+            environmentController.updateEnv(env);
+            setState(() {});
+          },
+          activeColor: primaryPurple,
+          inactiveColor: primaryPurpleLighter.withOpacity(0.6),
+        )
       ],
     );
   }
@@ -120,15 +130,18 @@ class _AirSliderState extends State<_AirSlider> {
           style: TextStyle(fontFamily: "Minecraft"),
         ),
         Slider(
-            value: env.airQuality.index.toDouble(),
-            max: AirQuality.values.length.toDouble() - 1,
-            divisions: AirQuality.values.length - 1,
-            onChanged: (value) {
-              int index = value.toInt();
-              env.airQuality = AirQuality.values[index];
-              environmentController.updateEnv(env);
-              setState(() {});
-            })
+          value: env.airQuality.index.toDouble(),
+          max: AirQuality.values.length.toDouble() - 1,
+          divisions: AirQuality.values.length - 1,
+          onChanged: (value) {
+            int index = value.toInt();
+            env.airQuality = AirQuality.values[index];
+            environmentController.updateEnv(env);
+            setState(() {});
+          },
+          activeColor: primaryPurple,
+          inactiveColor: primaryPurpleLighter.withOpacity(0.6),
+        )
       ],
     );
   }
@@ -151,15 +164,18 @@ class _WeatherSliderState extends State<_WeatherSlider> {
           style: TextStyle(fontFamily: "Minecraft"),
         ),
         Slider(
-            value: env.weather.index.toDouble(),
-            max: EnvWeather.values.length.toDouble() - 1,
-            divisions: EnvWeather.values.length - 1,
-            onChanged: (value) {
-              int index = value.toInt();
-              env.weather = EnvWeather.values[index];
-              environmentController.updateEnv(env);
-              setState(() {});
-            })
+          value: env.weather.index.toDouble(),
+          max: EnvWeather.values.length.toDouble() - 1,
+          divisions: EnvWeather.values.length - 1,
+          onChanged: (value) {
+            int index = value.toInt();
+            env.weather = EnvWeather.values[index];
+            environmentController.updateEnv(env);
+            setState(() {});
+          },
+          activeColor: primaryPurple,
+          inactiveColor: primaryPurpleLighter.withOpacity(0.6),
+        )
       ],
     );
   }
