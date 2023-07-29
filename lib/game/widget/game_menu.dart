@@ -1,6 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:necopia/const/color.dart';
+import 'package:necopia/game/layer/uv_layer.dart';
 import 'package:necopia/game/necopia_game.dart';
 import 'package:necopia/game/widget/air_quality_bar.dart';
 import 'package:necopia/game/widget/uv_bar.dart';
@@ -15,15 +18,56 @@ class GameMenu extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          padding: EdgeInsets.only(top: 10, left: 30, right: 30),
-          child: Column(children: [
-            UVBar(),
-            SizedBox(
-              height: 20,
+        Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  width: 20,
+                  height: 25,
+                  decoration:
+                      BoxDecoration(color: Colors.grey[800], boxShadow: [
+                    BoxShadow(
+                        color: Colors.black26,
+                        offset: Offset(3, 3),
+                        blurRadius: 0,
+                        spreadRadius: 4)
+                  ]),
+                ),
+                Container(
+                  width: 20,
+                  height: 25,
+                  decoration:
+                      BoxDecoration(color: Colors.grey[800], boxShadow: [
+                    BoxShadow(
+                        color: Colors.black26,
+                        offset: Offset(3, 3),
+                        blurRadius: 0,
+                        spreadRadius: 4)
+                  ]),
+                ),
+              ],
             ),
-            AirQualityBar()
-          ]),
+            Container(
+              margin: EdgeInsets.only(left: 15, right: 15),
+              decoration: BoxDecoration(
+                  border: Border.all(width: 4, color: Colors.grey),
+                  color: Colors.black,
+                  image: DecorationImage(
+                      filterQuality: FilterQuality.none,
+                      image: AssetImage(
+                        "assets/images/tv_background1.jpeg",
+                      ),
+                      fit: BoxFit.fitWidth)),
+              width: game.size.x,
+              padding: EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [UVBar(), AirQualityBar()],
+              ),
+            ),
+          ],
         ),
         Padding(
           padding: const EdgeInsets.all(16.0),
