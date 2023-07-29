@@ -88,7 +88,7 @@ Widget DailyMissionWidget(
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(left: 5, bottom: 2),
+                  margin: const EdgeInsets.only(left: 5),
                   alignment: Alignment.center,
                   child: Image.asset(
                     "assets/images/coin.png",
@@ -166,7 +166,7 @@ class MissionPanel extends StatelessWidget {
                         description: item.description,
                         reward: item.reward,
                         missionIcon: Image.asset(
-                          "assets/icon/cart.png",
+                          "assets/images/mission.png",
                           filterQuality: FilterQuality.none,
                         ),
                         stateIcon: item.isFinish

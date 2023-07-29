@@ -70,7 +70,7 @@ class _LoginState extends State<LoginScreen> {
                           "Welcome to Necopia again!",
                           style: TextStyle(
                               letterSpacing: 1,
-                              fontSize: 23,
+                              fontSize: 20,
                               fontWeight: FontWeight.w900,
                               fontFamily: "Pixelate",
                               color: Colors.white,
