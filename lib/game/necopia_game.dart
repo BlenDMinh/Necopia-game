@@ -22,6 +22,7 @@ import 'package:necopia/game/layer/rain_layer.dart';
 import 'package:necopia/game/layer/rain_sky_layer.dart';
 import 'package:necopia/game/layer/sky_layer.dart';
 import 'package:necopia/game/layer/uv_layer.dart';
+import 'package:necopia/game/widget/ad.dart';
 import 'package:necopia/game/widget/dev_menu.dart';
 import 'package:necopia/game/widget/dialog_panel.dart';
 import 'package:necopia/game/widget/game_menu.dart';
@@ -125,7 +126,9 @@ class NecopiaGame extends FlameGame with TapCallbacks {
     shelf.position = Vector2(-20, size.y / 2.7);
     add(shelf);
 
-    tv = await TvComponent.create();
+    tv = await TvComponent.create(onTap: () {
+      overlays.add('ad');
+    });
     tv.position = Vector2(320, size.y / 1.75);
     add(tv);
 
@@ -199,7 +202,8 @@ GameWidget necopiaGameWidget = GameWidget.controlled(
     'store': (context, game) => StoreWidget(game as NecopiaGame),
     'dev': (context, game) => DevMenu(game as NecopiaGame),
     'mission': (context, game) => MissionPanel(game as NecopiaGame),
-    'dialog': (context, game) => DialogPanel(game as NecopiaGame)
+    'dialog': (context, game) => DialogPanel(game as NecopiaGame),
+    'ad': (context, game) => Ad(game as NecopiaGame)
   },
   loadingBuilder: (p0) => loading(p0),
   initialActiveOverlays: const ['game_menu', 'dialog'],

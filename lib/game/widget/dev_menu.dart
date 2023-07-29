@@ -201,7 +201,12 @@ class DevMenu extends StatelessWidget {
               },
               aspect: PixelButtonAspect.oneOne,
               width: 40,
-              child: Text("Close"),
+              child: Text(
+                "X",
+                style: TextStyle(
+                  fontFamily: "Pixelate",
+                ),
+              ),
             ),
           ),
           _AutoUpdateSwitch(),

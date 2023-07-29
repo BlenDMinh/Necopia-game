@@ -122,7 +122,7 @@ class GameMenu extends StatelessWidget {
                   aspect: PixelButtonAspect.oneOne,
                   width: 50,
                   child: Image.asset(
-                    "assets/icon/letter.png",
+                    "assets/images/mission.png",
                     filterQuality: FilterQuality.none,
                     color: Colors.white,
                     width: 20,
