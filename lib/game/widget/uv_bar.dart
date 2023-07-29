@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:necopia/environment/environment_controller.dart';
-import 'package:necopia/widget/pixelate/pixel_container.dart';
 
 class UVBar extends StatelessWidget {
   UVBar({super.key});
@@ -18,12 +17,13 @@ class UVBar extends StatelessWidget {
           num uvIndex = 0;
           num uvMax = 0;
           EnvUv uv = EnvUv.low;
+          debugPrint(snapshot.data.toString());
           if (snapshot.data != null) {
             if (snapshot.data!.openUvResult != null) {
               uvIndex = snapshot.data!.openUvResult!.uv;
               uvMax = snapshot.data!.openUvResult!.uvMax;
-              uv = snapshot.data!.uv;
             }
+            uv = snapshot.data!.uv;
           }
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
