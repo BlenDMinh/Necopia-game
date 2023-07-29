@@ -162,7 +162,7 @@ class EnvironmentController extends GetxController
     // _updateAirVisual();
   }
 
-  bool _updateStatus = true;
+  bool _updateStatus = false;
 
   @override
   void setUpdate(bool status) {

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:necopia/const/color.dart';
 import 'package:necopia/environment/environment_controller.dart';
 import 'package:necopia/game/animal/animal_component.dart';
+import 'package:necopia/game/animal/cat.dart';
 import 'package:necopia/game/item/bookshelf.dart';
 import 'package:necopia/game/item/lamp.dart';
 import 'package:necopia/game/layer/background_image_layer.dart';
@@ -131,6 +132,7 @@ class NecopiaGame extends FlameGame {
           offset: Vector2(size.x / 8, size.y * 3.3 / 5));
       animals.add(animal);
       add(animal);
+      add((animal as CatComponent).catDialogComponent);
     }
   }
 

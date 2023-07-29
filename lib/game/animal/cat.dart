@@ -4,6 +4,7 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:get/get.dart';
 import 'package:necopia/game/animal/animal_component.dart';
+import 'package:necopia/game/animal/cat_dialog.dart';
 import 'package:necopia/game/controller/dialog_controller.dart';
 import 'package:necopia/model/animal_data.dart';
 
@@ -12,7 +13,9 @@ class CatComponent extends AnimalComponent with TapCallbacks {
   static create(AnimalData data,
       {required Vector2 movingSize, required Vector2 offset}) async {
     final animations = await _createAnimations();
-    return CatComponent._(data, animations, movingSize, offset);
+    CatComponent cat = CatComponent._(data, animations, movingSize, offset);
+    cat.catDialogComponent = await CatDialogComponent.create(cat);
+    return cat;
   }
 
   static Future<Map<AnimalState, SpriteAnimation>> _createAnimations() async {
@@ -35,11 +38,14 @@ class CatComponent extends AnimalComponent with TapCallbacks {
     return {AnimalState.idle: idle, AnimalState.moving: move};
   }
 
+  late CatDialogComponent catDialogComponent;
   final dialogController = Get.find<ICatDialogController>();
 
   @override
   FutureOr<void> onLoad() async {
     await super.onLoad();
+
+    catDialogComponent = await CatDialogComponent.create(this);
 
     dialogController.stream.listen((event) {
       print(event);
