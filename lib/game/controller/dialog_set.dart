@@ -1,8 +1,8 @@
 List<String> randomKnowledgeDialogs = [
-  "Meow, Did you know that elephants coat themselves in mud to protect against the sun.",
-  "Meow, Did you know that at least 9 out of 10 people across the world are living in places with polluted air.",
-  "Meow, Did you know that too much UV radiation can be very harmful to your eyes.",
-  "Meow, Did you know that scorpions glow under UV light."
+  "Meow, Did you know that elephants coat themselves in mud to protect against the sun?",
+  "Meow, Did you know that at least 9 out of 10 people across the world are living in places with polluted air?",
+  "Meow, Did you know that too much UV radiation can be very harmful to your eye?.",
+  "Meow, Did you know that scorpions glow under UV light?"
 ];
 List<String> uvDialogs = [
   "Meowww, Beware of HIGH UV effect! Don't forget to protect your skin with sunscreen, hats, and sunglasses.",
