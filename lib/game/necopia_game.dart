@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/layers.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:necopia/game/animal/animal_component.dart';
 import 'package:necopia/game/animal/cat.dart';
 import 'package:necopia/game/item/bookshelf.dart';
 import 'package:necopia/game/item/lamp.dart';
+import 'package:necopia/game/layer/air_quality_layer.dart';
 import 'package:necopia/game/layer/background_image_layer.dart';
 import 'package:necopia/game/layer/color_tint_layer.dart';
 import 'package:necopia/game/layer/game_layer.dart';
@@ -28,7 +30,7 @@ import 'package:necopia/service/user_service.dart';
 import 'package:necopia/view/loading.dart';
 import 'package:necopia/view/profile.dart';
 
-class NecopiaGame extends FlameGame {
+class NecopiaGame extends FlameGame with TapCallbacks {
   UserService userService = Get.find<UserService>();
   AnimalData? animalData;
 
@@ -53,6 +55,7 @@ class NecopiaGame extends FlameGame {
   late Layer backgroundLayer;
   late ColorTintLayer colorTintLayer;
   late UvLayer uvLayer;
+  late AirQualityLayer airQualityLayer;
   late Layer gameLayer;
   late RoundGlowLayer windowGlowLayer;
 
@@ -69,7 +72,7 @@ class NecopiaGame extends FlameGame {
 
     skyLayer = SkyLayer(environmentController.currentEnvironment.time,
         size: Vector2(size.x / 2, size.x / 2),
-        offset: Vector2(size.x / 2, size.y / 2 - 70));
+        offset: Vector2(size.x / 2, size.y / 2.5));
 
     final backgroundSprite = await Sprite.load('room.png');
 
@@ -81,9 +84,10 @@ class NecopiaGame extends FlameGame {
 
     colorTintLayer = ColorTintLayer();
     uvLayer = UvLayer();
+    airQualityLayer = AirQualityLayer();
 
     gameLayer = GameLayer(this);
-    windowGlowLayer = RoundGlowLayer(Offset(size.x / 2, size.y / 2 - 70),
+    windowGlowLayer = RoundGlowLayer(Offset(size.x / 2, size.y / 2.5),
         color: primaryPurpleLighter.withOpacity(0.6),
         radius: 100,
         blurRadius: 50,
@@ -95,24 +99,14 @@ class NecopiaGame extends FlameGame {
       colorTintLayer.envTime = environment!.time;
       skyLayer.changeTime(environment.time);
       uvLayer.uv = environment.uv;
-
-      // colorTintLayer.envTime = EnvTime.night;
-      // skyLayer.changeTime(EnvTime.night);
-
-      // debugPrint(environment.time.toString());
-      // windowGlowLayer.color =
-      //     Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-      //         .withOpacity(1.0);
-      // windowGlowLayer.outerColor =
-      //     Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-      //         .withOpacity(1.0);
+      airQualityLayer.airQuality = environment.airQuality;
     });
     shelf = await BookShelfComponent.create();
-    shelf.position = Vector2(-20, size.y / 3);
+    shelf.position = Vector2(-20, size.y / 2.7);
     add(shelf);
 
     lamp = await LampComponent.create();
-    lamp.position = Vector2(0, 450);
+    lamp.position = Vector2(-30, 550);
     lamp.lampGlow.position = lamp.position.toOffset() + Offset(70, 30);
     add(lamp);
 
@@ -128,7 +122,7 @@ class NecopiaGame extends FlameGame {
       if (!data.isActive) continue;
       animalData = data;
       AnimalComponent animal = await AnimalComponent.fromAnimalData(data,
-          movingSize: Vector2(size.x * 3 / 4, size.y / 4),
+          movingSize: Vector2(size.x * 3 / 4, size.y / 5),
           offset: Vector2(size.x / 8, size.y * 3.3 / 5));
       animals.add(animal);
       add(animal);
@@ -159,8 +153,14 @@ class NecopiaGame extends FlameGame {
     super.render(canvas);
     colorTintLayer.render(canvas);
     uvLayer.render(canvas);
+    airQualityLayer.render(canvas);
     lamp.lampGlow.render(canvas);
     windowGlowLayer.render(canvas);
+  }
+
+  @override
+  void onTapDown(TapDownEvent event) {
+    animals[0].triggerMove(targetPosition: event.canvasPosition);
   }
 }
 

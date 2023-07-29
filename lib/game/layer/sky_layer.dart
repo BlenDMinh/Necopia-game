@@ -23,6 +23,6 @@ class SkyLayer extends DynamicLayer {
   void drawLayer() {
     offset ??= Vector2(0, 0);
     _sprite?.render(canvas,
-        size: size, position: offset, anchor: const Anchor(0.5, 0.5));
+        size: size, position: offset, anchor: Anchor.center);
   }
 }

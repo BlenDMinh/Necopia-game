@@ -44,10 +44,17 @@ class AnimalComponent extends SpriteAnimationGroupComponent<AnimalState> {
     anchor = Anchor.center;
   }
 
-  void _triggerMove() {
-    target = Vector2(Random().nextDouble() * movingSize[0],
-            Random().nextDouble() * movingSize[1]) +
-        offset;
+  void triggerMove({Vector2? targetPosition}) {
+    if (targetPosition != null) {
+      targetPosition.x = min(targetPosition.x, movingSize.x + offset.x);
+      targetPosition.y = min(targetPosition.y, movingSize.y + offset.y);
+      targetPosition.x = max(targetPosition.x, offset.x);
+      targetPosition.y = max(targetPosition.y, offset.y);
+    }
+    target = targetPosition ??
+        Vector2(Random().nextDouble() * movingSize.x,
+                Random().nextDouble() * movingSize.y) +
+            offset;
     final moveDirection = (target! - position).x > 0;
     if (moveDirection != this.moveDirection) {
       flipHorizontally();
@@ -74,7 +81,7 @@ class AnimalComponent extends SpriteAnimationGroupComponent<AnimalState> {
       if ((target! - position).length < speed) _onTargetReach();
     } else {
       bool trigger = Random().nextDouble() < 0.002;
-      if (trigger) _triggerMove();
+      if (trigger) triggerMove();
     }
   }
 

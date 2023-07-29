@@ -12,7 +12,7 @@ class LampComponent extends SpriteComponent {
     lamp.sprite = sprite;
     lamp.size *= 2;
     lamp.lampGlow = RoundGlowLayer(lamp.position.toOffset(),
-        color: primaryYellowLighter, outerRadius: 200, radius: 50);
+        color: primaryYellowLighter, outerRadius: 300, radius: 50);
     return lamp;
   }
 }

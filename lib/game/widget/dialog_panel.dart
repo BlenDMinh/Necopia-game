@@ -20,7 +20,7 @@ class _DialogPanelState extends State<DialogPanel> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.center,
+      alignment: Alignment.topCenter,
       child: StreamBuilder(
           stream: dialogController.stream,
           builder: (context, snapshot) {
@@ -32,10 +32,11 @@ class _DialogPanelState extends State<DialogPanel> {
             debugPrint(snapshot.data?.message ?? "test");
             if (!isDisplay) return SizedBox.shrink();
             return PixelContainer(
+              margin: EdgeInsets.only(top: 300),
               color: Colors.white,
               child: Container(
                 width: 300,
-                height: 50,
+                height: 100,
                 child: AnimatedTextKit(
                   onNext: (ind, s) async {
                     isDisplay = false;
