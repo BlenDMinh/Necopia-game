@@ -7,7 +7,7 @@ class UVBar extends StatelessWidget {
 
   final environmentController = Get.find<IEnvironmentController>();
 
-  final _uvString = ["Low", "Moderarte", "High", "Very high", "Extreme"];
+  final _uvString = ["Low", "Moderate", "High", "Very high", "Extreme"];
   final _uvColor = [
     Colors.green,
     Color.fromARGB(255, 210, 196, 69),

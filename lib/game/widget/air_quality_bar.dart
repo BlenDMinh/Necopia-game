@@ -96,7 +96,7 @@ class AirQualityBar extends StatelessWidget {
                           height: 40,
                           fit: BoxFit.contain,
                         ),
-                        Text("Temporature: ",
+                        Text("Temperature: ",
                             style: TextStyle(
                               fontFamily: "Pixelate",
                               fontWeight: FontWeight.bold,

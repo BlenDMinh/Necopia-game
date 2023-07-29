@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:necopia/environment/environment_controller.dart';
 import 'package:necopia/game/animal/animal_component.dart';
@@ -24,6 +25,7 @@ class CatComponent extends AnimalComponent with TapCallbacks {
     cat.catDialogComponent = await CatDialogComponent.create(cat);
     cat.glasses = await CatClothComponent.create(cat, "cat/glasses.png");
     cat.mask = await CatClothComponent.create(cat, "cat/mask.png");
+    // cat.add(cat.catDialogComponent);
     return cat;
   }
 
@@ -83,9 +85,16 @@ class CatComponent extends AnimalComponent with TapCallbacks {
   }
 
   void meow() async {
+    debugPrint("Meowing");
     final catPlayer = AudioPlayer();
     await catPlayer.setVolume(0.2);
     await catPlayer.play(AssetSource("audio/meow-effect.mp3"),
         mode: PlayerMode.lowLatency);
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+    // catDialogComponent.update(dt);
   }
 }

@@ -53,9 +53,10 @@ class _DialogPanelState extends State<DialogPanel> {
                       TyperAnimatedText(snapshot.data?.message ?? "Hello",
                           speed: const Duration(milliseconds: 50),
                           textStyle: const TextStyle(
-                              fontFamily: "Pixelate",
-                              letterSpacing: 0,
-                              fontWeight: FontWeight.bold)),
+                            fontFamily: "Pixelate",
+                            letterSpacing: 0,
+                            fontWeight: FontWeight.bold,
+                          )),
                     ],
                     totalRepeatCount: 1,
                     isRepeatingAnimation: false,

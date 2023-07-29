@@ -149,6 +149,8 @@ class NecopiaGame extends FlameGame with TapCallbacks {
           offset: Vector2(size.x / 8, size.y * 3.3 / 5));
       animals.add(animal);
       add(animal);
+      CatComponent cat = animal as CatComponent;
+      add(cat.catDialogComponent);
     }
     for (AnimalData data in user!.animalDatas!) {
       if (!data.isActive) continue;
@@ -158,7 +160,8 @@ class NecopiaGame extends FlameGame with TapCallbacks {
           offset: Vector2(size.x / 8, size.y * 3.3 / 5));
       animals.add(animal);
       add(animal);
-      add((animal as CatComponent).catDialogComponent);
+      CatComponent cat = animal as CatComponent;
+      add(cat.catDialogComponent);
       add(animal.mask);
       add(animal.glasses);
     }
