@@ -14,6 +14,11 @@ Download or clone this repo by using the link below:
 ```
 https://github.com/BlenDMinh/Necopia-game.git
 ```
+.apk file
+
+```
+https://drive.google.com/file/d/1UrVl25Vlmahp1VcQwbog-eVNLTPWLvL2/view?usp=sharing
+```
 
 **Step 2:**
 
