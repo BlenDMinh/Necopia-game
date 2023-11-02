@@ -12,7 +12,7 @@ A game made by Neco team for Unihack 2023.
 Download or clone this repo by using the link below:
 
 ```
-https://github.com/zubairehman/flutter-boilerplate-project.git
+https://github.com/BlenDMinh/Necopia-game.git
 ```
 
 **Step 2:**
