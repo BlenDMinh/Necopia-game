@@ -2,8 +2,7 @@
 A game made by Neco team for Unihack 2023.
 
 ## Main character
-![cat](https://github.com/BlenDMinh/Necopia-game/assets/93019716/f13f7e8d-dfca-4394-a3a3-d208a4efbe46) ![cat-3](https://github.com/BlenDMinh/Necopia-game/assets/93019716/dd34e9f8-fb8b-45aa-9bf9-688f2337b3d2) ![cat-4](https://github.com/BlenDMinh/Necopia-game/assets/93019716/7a18db75-3c7b-44bc-bc64-3f189bb7a1f7)
-
+![cat](https://github.com/BlenDMinh/Necopia-game/assets/93019716/f13f7e8d-dfca-4394-a3a3-d208a4efbe46)
 
 ## Video demo:
 [![Watch the video](https://cdn1.vectorstock.com/i/1000x1000/60/30/play-button-icon-video-audio-player-vector-20716030.jpg)](https://drive.google.com/file/d/13DaA276Zj4S5yX_CvLynuPoFeL77Ve7u/view?usp=sharing)
