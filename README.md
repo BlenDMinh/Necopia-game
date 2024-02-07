@@ -5,7 +5,7 @@
 <div align="center">
     <h1>🌱NECOPIA🥳 🚀</h1>
     <h3>Environmental Cat</h3>
-    <img src="https://github.com/BlenDMinh/Necopia-game/assets/93019716/f13f7e8d-dfca-4394-a3a3-d208a4efbe46" alt="Workflow status badge">
+    <img src="https://github.com/BlenDMinh/Necopia-game/assets/93019716/f13f7e8d-dfca-4394-a3a3-d208a4efbe46" alt="Workflow status badge" width="300">
     <h3>A game made by Neco team for Unihack 2023.</h3>
 </div>
 
