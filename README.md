@@ -1,46 +1,83 @@
-# Necopia - Environmental Cat
-A game made by Neco team for Unihack 2023.
+[![Flutter](https://img.shields.io/badge/Flutter-100%25-blue?logo=flutter)](https://flutter.dev/)
+[![Flame](https://img.shields.io/badge/Flame-40%25-orange?logo=flame)](https://flame-engine.org/)
+[![Dart](https://img.shields.io/badge/Dart-100%25-blue?logo=dart)](https://dart.dev/)
+[![Last Commit](https://img.shields.io/github/last-commit/give-it-your-best-shot/Necopia?style=flat-square)](https://github.com/give-it-your-best-shot/Necopia/commits/main)
+<div align="center">
+    <h1>NECOPIA</h1>
+    <h3>Environmental Cat</h3>
+    <img src="https://github.com/BlenDMinh/Necopia-game/assets/93019716/f13f7e8d-dfca-4394-a3a3-d208a4efbe46" alt="Workflow status badge">
+    <h3>A game made by Neco team for Unihack 2023.</h3>
+</div>
+## Project Overview
 
-## Main character
-![cat](https://github.com/BlenDMinh/Necopia-game/assets/93019716/f13f7e8d-dfca-4394-a3a3-d208a4efbe46)
+Necopia is a mobile game designed to raise awareness about environmental protection by engaging players in the care of virtual pets. The game aims to increase consciousness about the impact of climate change through educational narratives and warning scenes. Players will be educated on real-life scenarios and offered temporary solutions by their virtual cats.
 
-## Video demo:
-[![Watch the video](https://cdn1.vectorstock.com/i/1000x1000/60/30/play-button-icon-video-audio-player-vector-20716030.jpg)](https://drive.google.com/file/d/13DaA276Zj4S5yX_CvLynuPoFeL77Ve7u/view?usp=sharing)
+## Project Description
 
+Necopia is a "virtual pet-raising" game where cats showcase the effects of climate change on their surroundings. The game incorporates real-time weather conditions (rain, clear skies, night, high dust levels, high UV index, etc.) influencing the virtual pet's interface. Information such as UV index, temperature, humidity, and dust levels is displayed.
 
-## How to Use 
+### Main Features:
 
-**Step 1:**
+1. **Pet Care Interface:** Adapts to external real-time weather conditions.
+2. **Daily Pet Care Tasks:** Play with the pet and perform daily tasks (feeding, bathing, watching TV, etc.).
+3. **Earn Money by Addressing Environmental Issues:** Answer daily environmental questions to earn in-game currency. Use the currency to purchase items from the shop and customize your space and cats.
 
-Download or clone this repo by using the link below:
+## Key Points of Emphasis
 
-```
-https://github.com/BlenDMinh/Necopia-game.git
-```
-.apk file
+Necopia's unique feature lies in its ability to warn players about the impact of climate change, thereby enhancing their environmental awareness. As a game developer, influencing people's perception of environmental protection is a significant challenge. Necopia aims to revolutionize the entertainment industry with an accessible interface and user-friendly features while simultaneously raising awareness about the severe effects of climate change on the environment.
 
-```
-https://drive.google.com/file/d/1UrVl25Vlmahp1VcQwbog-eVNLTPWLvL2/view?usp=sharing
-```
+## Technologies Used
 
-**Step 2:**
+- Operating System: [![macOS](https://img.shields.io/badge/macOS-%23999999.svg?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/macos/) [![Windows](https://img.shields.io/badge/Windows-%230078D6.svg?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows/)
+- Version Control: [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
+- Communication: [![Slack](https://img.shields.io/badge/Slack-%234A154B.svg?style=for-the-badge&logo=slack&logoColor=white)](https://slack.com/) [![Google Meet](https://img.shields.io/badge/Google%20Meet-%234285F4.svg?style=for-the-badge&logo=googlemeet&logoColor=white)](https://meet.google.com/)
+- Backend: [![Firebase](https://img.shields.io/badge/Firebase-%23FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+- Programming Languages: [![Dart](https://img.shields.io/badge/Dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev/)
+- Framework: [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/) [![Flame](https://img.shields.io/badge/Flame-%23E83E8C.svg?style=for-the-badge)](https://flame-engine.org/)
 
-Go to project root and execute the following command in console to get the required dependencies: 
+## Team and Roles
 
-```
-flutter pub get 
-```
+- Team Size: 3 members
+- Team Roles:
+  - Mobile Developers (3 members)
 
-**Step 3:**
+### My Role:
 
-This project uses `inject` library that works with code generation, execute the following command to generate files:
+I was responsible for mobile development, contributing to the implementation of Necopia's features.
 
-```
-flutter packages pub run build_runner build --delete-conflicting-outputs
-```
+## Development Period
+
+- Duration: 2 months
+
+## Getting Started
+
+To run the game locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/give-it-your-best-shot/Necopia.git
+
 
 or watch command in order to keep the source code synced automatically:
 
 ```
 flutter packages pub run build_runner watch
 ```
+2. Navigate to the project directory
+```
+cd Necopia
+```
+3. Install dependencies using Flutter
+```
+flutter pub get
+```
+4. Run the game:
+```
+flutter run
+```
+## Video demo:
+[![Watch the video](https://cdn1.vectorstock.com/i/1000x1000/60/30/play-button-icon-video-audio-player-vector-20716030.jpg)](https://drive.google.com/file/d/13DaA276Zj4S5yX_CvLynuPoFeL77Ve7u/view?usp=sharing)
+<div align="center">
+    <img src="https://github.com/give-it-your-best-shot/Dicee-iOS13-Completed/blob/main/Documentation/readme-end-banner.png?raw=true" alt="Workflow status badge">
+</div>
