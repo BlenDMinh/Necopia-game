@@ -28,19 +28,19 @@ Necopia is a "virtual pet-raising" game where cats showcase the effects of clima
 
 ## Images: 
 <div align="center">
-  <img src="https://drive.google.com/uc?export=view&id=11zeLkLnWkP9248ZiWrUXSJk_-8X0be1H" alt="Image 1" width="250" />
-  <img src="https://drive.google.com/uc?export=view&id=1ROe4Mbp5Jf1vN-mF8X_54IHClLhCzDmA" alt="Image 2" width="250" />
-  <img src="https://drive.google.com/uc?export=view&id=1hsK5M7Qdj3Apn-Gzh2Fen7Hht3MEQuh9" alt="Image 3" width="250" />
+  <img src="https://github.com/give-it-your-best-shot/Necopia/blob/main/unihack-images/File%201.png?raw=true" alt="Image 1" width="250" />
+  <img src="https://github.com/give-it-your-best-shot/Necopia/blob/main/unihack-images/File%202.png?raw=true" alt="Image 2" width="250" />
+  <img src="https://github.com/give-it-your-best-shot/Necopia/blob/main/unihack-images/File%203.png?raw=true" alt="Image 3" width="250" />
 </div>
 
 <div align="center">
-  <img src="https://drive.google.com/uc?export=view&id=14jbJ5GFpBEWlsCRCdF9sBuv3doxCkncf" alt="Image 4" width="250" />
-  <img src="https://drive.google.com/uc?export=view&id=1xAW739aTUuYGA3_AJ44LmMfrFJTCpJyA" alt="Image 5" width="250" />
-  <img src="https://drive.google.com/uc?export=view&id=198Sy9Jv8FVrLu6x7ugYD_dHCJ0RNCe19" alt="Image 6" width="250" />
+  <img src="https://github.com/give-it-your-best-shot/Necopia/blob/main/unihack-images/File%204.png?raw=true" alt="Image 4" width="250" />
+  <img src="https://github.com/give-it-your-best-shot/Necopia/blob/main/unihack-images/File%205.png?raw=true" alt="Image 5" width="250" />
+  <img src="https://github.com/give-it-your-best-shot/Necopia/blob/main/unihack-images/File%206.png?raw=true" alt="Image 6" width="250" />
 </div>
 
 <div align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1b0B3D2N9HBHYSWRhpiSMOjLoIV6_93yr" alt="Image 7" width="250" />
+  <img src="https://github.com/give-it-your-best-shot/Necopia/blob/main/unihack-images/File%207.png?raw=true" alt="Image 7" width="250" />
 </div>
 
 ## Key Points of Emphasis 🔑
